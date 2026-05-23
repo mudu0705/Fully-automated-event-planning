@@ -1,0 +1,48 @@
+.about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+
+.about-illustration {
+  position: relative; width: 380px; height: 380px; margin: 0 auto;
+}
+.ai-circle {
+  position: absolute; border-radius: 50%; border: 1px solid var(--border);
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  animation: spin-slow linear infinite;
+}
+.outer-ring { width: 340px; height: 340px; border-color: rgba(79,142,247,0.2); animation-duration: 20s; }
+.middle-ring { width: 240px; height: 240px; border-color: rgba(168,85,247,0.2); animation-duration: 15s; animation-direction: reverse; }
+.ai-center {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 100px; height: 100px; border-radius: 50% !important;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 6px; font-size: 28px; color: var(--accent-blue); z-index: 2;
+}
+.ai-center span { font-size: 11px; font-weight: 600; color: var(--text-secondary); }
+.ai-orbit-item {
+  position: absolute; top: 50%; left: 50%;
+  transform: rotate(var(--angle)) translateX(160px) rotate(calc(-1 * var(--angle)));
+}
+.orbit-dot {
+  transform: translate(-50%, -50%);
+  padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: 600;
+  color: var(--text-secondary); white-space: nowrap;
+}
+
+.about-benefits { display: flex; flex-direction: column; gap: 20px; }
+.benefit-item { display: flex; align-items: flex-start; gap: 16px; }
+.benefit-icon {
+  width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+  background: color-mix(in srgb, var(--bc) 15%, transparent);
+  color: var(--bc); display: flex; align-items: center; justify-content: center;
+  font-size: 16px; transition: var(--transition);
+}
+.benefit-item:hover .benefit-icon { transform: scale(1.1); }
+.benefit-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; color: var(--text-primary); }
+.benefit-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+@media (max-width: 1024px) {
+  .about-inner { grid-template-columns: 1fr; gap: 40px; }
+  .about-illustration { width: 300px; height: 300px; }
+  .outer-ring { width: 280px; height: 280px; }
+  .middle-ring { width: 200px; height: 200px; }
+  .ai-orbit-item { transform: rotate(var(--angle)) translateX(130px) rotate(calc(-1 * var(--angle))); }
+}
